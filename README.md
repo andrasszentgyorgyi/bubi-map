@@ -4,13 +4,6 @@
 
 ---
 
-## 🚧 Note on Live Data (Bubi 2.0 Rollout)
-The Budapest MOL Bubi bike-sharing system is currently undergoing a complete hardware and system generation upgrade. During this transition period, the official BKK OpenData API is returning an empty dataset. 
-
-To ensure the application's UI, dynamic rendering, and logic remain fully testable, I implemented an edge-case fallback mechanism. If the API returns `0` stations, the app automatically intercepts the response and injects synthetic mock data (using real Budapest coordinates). This guarantees the map, dynamic markers, and popups remain demonstrable during the city-wide outage.
-
----
-
 A real-time, interactive web map that visualizes the live availability of Budapest’s public bike-sharing network (MOL Bubi). Built with a focus on clean architecture, secure API handling, and a polished user experience.
 
 ## 🛠️ Tech Stack
