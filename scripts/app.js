@@ -60,26 +60,11 @@ async function loadBubiData() {
         
         let stations = json.data.list;
 
-        if (stations.length === 0) {
-            stations = [
-                { name: "ELTE Lágymányosi Campus", lat: 47.4734, lon: 19.0622, bikes: 12, spaces: 5 },
-                { name: "Astoria", lat: 47.4944, lon: 19.0592, bikes: 0, spaces: 15 },
-                { name: "Kálvin tér", lat: 47.4895, lon: 19.0618, bikes: 3, spaces: 10 },
-                { name: "Deák Ferenc tér", lat: 47.4979, lon: 19.0528, bikes: 25, spaces: 2 },
-                { name: "Jászai Mari tér", lat: 47.5135, lon: 19.0483, bikes: 1, spaces: 20 },
-                { name: "Fővám tér", lat: 47.4873, lon: 19.0581, bikes: 8, spaces: 12 },
-                { name: "Szent Gellért tér", lat: 47.4841, lon: 19.0525, bikes: 5, spaces: 5 },
-                { name: "Oktogon", lat: 47.5055, lon: 19.0628, bikes: 0, spaces: 18 },
-                { name: "Margit híd, budai hídfő", lat: 47.5143, lon: 19.0396, bikes: 4, spaces: 8 }
-            ];
-        }
-
         for (let i = 0; i < stations.length; i++) {
             let station = stations[i];
             let bikesAvailable = station.bikes;
-            let emptySlots = station.spaces;
 
-            let markerColor = '#2ecc71'; 
+            let markerColor = '#2ecc71';
             if (bikesAvailable === 0) {
                 markerColor = '#e74c3c'; 
             } else if (bikesAvailable <= 5) {
@@ -97,8 +82,8 @@ async function loadBubiData() {
             let popupContent = `
                 <div class="popup-title">${station.name}</div>
                 <div class="popup-data">
-                    Szabad biciklik: <span class="highlight" style="color: ${markerColor}">${bikesAvailable}</span> db<br>
-                    Szabad helyek: <span class="highlight">${emptySlots}</span> db
+                    Elérhető kerékpárok: <span class="highlight" style="color: ${markerColor}">${bikesAvailable}</span> db<br>
+                    Állomás kódja: <span class="highlight">${station.code}</span>
                 </div>
             `;
 
