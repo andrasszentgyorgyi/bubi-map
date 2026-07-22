@@ -56,9 +56,12 @@ async function loadBubiData() {
     try {
         // Fetching data from our secure Vercel backend route!
         let response = await fetch('/api/bubi');
+        console.log('[bubi] /api/bubi HTTP status:', response.status);
         let json = await response.json();
-        
+        console.log('[bubi] raw payload:', json);
+
         let stations = json.data.list;
+        console.log('[bubi] station count:', stations.length);
 
         for (let i = 0; i < stations.length; i++) {
             let station = stations[i];
