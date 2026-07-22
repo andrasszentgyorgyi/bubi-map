@@ -1,6 +1,6 @@
 export default async function handler(request, response) {
     const apiKey = process.env.BKK_API_KEY;
-    const url = `https://futar.bkk.hu/api/query/v1/ws/otp/api/where/bicycle-rental?key=${apiKey}&version=3`;
+    const url = `https://futar.bkk.hu/api/query/v1/ws/otp/api/where/bicycle-rental.json?key=${apiKey}&version=3`;
 
     try {
         const bkkResponse = await fetch(url);
